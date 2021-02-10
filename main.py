@@ -1,10 +1,15 @@
 import utils
-print('Choose from options:\n1. Levenshtein\n2. Soundex')
-choice = int(input('Type 1 or 2: '))
+import checker
+
+print('Choose from options:\n1. Levenshtein\n2. Soundex\n3.Spell correction')
+choice = int(input('Type 1,2 or 3: '))
 if choice == 1:
     word_1 = input('First string: ')
     word_2 = input('Second string: ')
     print(f'Levenshtein distance for "{word_1}" and "{word_2}" is {utils.levenshtein_distance(word_1, word_2)}')
-else:
+elif choice == 2:
     word = input('Input string: ')
     print(f'Soundex code for "{word}" is {utils.soundex(word)}')
+elif choice == 3:
+    word = input('Write misspelled word: ')
+    print('Possible options:', *checker.spelling_assistant(word))
